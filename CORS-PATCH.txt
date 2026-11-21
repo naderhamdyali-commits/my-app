@@ -1,0 +1,8 @@
+In main.js, inside startServer() after http.createServer(async(req,res)=>{, add:
+
+res.setHeader('Access-Control-Allow-Origin','*');
+res.setHeader('Access-Control-Allow-Headers','Authorization, Content-Type');
+res.setHeader('Access-Control-Allow-Methods','GET,POST,DELETE,OPTIONS');
+if(req.method==='OPTIONS'){res.writeHead(204);return res.end();}
+
+Note: For production deployment, replace '*' with a trusted origin and consider HTTPS/auth hardening.
